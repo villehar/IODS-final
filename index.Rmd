@@ -3,28 +3,25 @@ title: "Final assignment"
 author: "Ville Harjunen"
 date: "28 helmikuuta 2017"
 output: html_document
+email: ville.harjunen@helsinki.fi
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Present research and hypotheses
 
-## R Markdown
+Receiving a brief touch from a stranger has been shown increase receiver's willingness to comply with sender's requests. This widely known Midas Touch effect has also been found in computer mediated communication where the touch is approximated by electromechanical stimulation. However, recent findings suggest the effects of touch being particularly sensitive to other situational cues. In the present study we investigate whether virtual agent's facial expressions and touch influence person's compliance in a repeated trials Ultimatum game and whether the agent's facial expressions modify persuasiveness of the touch. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+The Ultimatum game is an economic decision-making bargaining (UG; Güth, Schmittberger, & Schwarze, 1982) in which participants are assigned to one of two roles, proposer and receiver, and asked to divide money between themselves and their co-player. Proposer is asked to make either a fair or unfair offer to the receiver whose task is to decide whether to accept or reject the offer. If accepting, the money will be divided as proposed but if rejecting, neither player receives anything. Despite the fact that accepting evey offer would be the only rational strategy, people have been shown to systematically reject most of the unfair offers. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+In the present study, we utilized an immersive virtual reality (VR) paradigm with haptic technology and motion tracking sensors to produce a strong illusion that, following a facial expression, the virtual agent reaches out and touched the participant. After these nonverbal cues, the proposer made an offer of which the co-player (receiver) either accepted or rejected. Both the receiver (i.e. participant receivers the offer) and proposer (i.e. participant makes the offer) trials were repeated multiple times with eight different virtual agents.
 
-```{r cars}
-summary(cars)
-```
+Due to the relative large and complex data set, the analyses of the final assignment will be restricted to the receiver trials in which the participant receives the offer and his/her task is to decide whether to accep or reject it. Along the earlier findings of the Midas touch -effect, it was assumed (H1) that receiving a touch from a virtual agent increases participants' likelihood to accept the subsecuent offer. Given that smile has been shown to have similar persuasive effects, it can be assumed (H2) that agent's emotional facial expressions also affects the likelihood offers are accepted. Finally, because tactile communication is particularly sensitive to other situational cues, it can be assumed (H3) that agent's happy expression enhances the persuasiveness of touch whereas angry expression reduces the Midas touch -effect.
 
-## Including Plots
 
-You can also embed plots, for example:
+## Short description of the study design
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Repeated-measures design with three within subject factors (offer fairness, touch type, and facial expression) was used. Agents' offers varied between very unfair (1e to the participant and 19e to the agent) to generous (19e to the participant and 1 to the agent) but this factor was later segmented to three categores (fair, little unfair, very unfair). The touch type factor had three levels: visuo-tactile (participant can feel and see the touch), visual (participant sees the touch but does not feel anything), and no touch. Agents' expressions consisted of happy, neutral and angry faces. Since the study included also EEG and autonomic nervous system measures (not included in the current analysis) which are extremely sensitive to noise, we had to repeat each of the touch_expression_offer condition many times. The resulting data is thus rather big. 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Describing the data
+
+Here is a link to the data wrangling script: 
