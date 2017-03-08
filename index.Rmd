@@ -8,20 +8,131 @@ email: ville.harjunen@helsinki.fi
 
 # Present research and hypotheses
 
-Receiving a brief touch from a stranger has been shown increase receiver's willingness to comply with sender's requests. This widely known Midas Touch effect has also been found in computer mediated communication where the touch is approximated by electromechanical stimulation. However, recent findings suggest the effects of touch being particularly sensitive to other situational cues. In the present study we investigate whether virtual agent's facial expressions and touch influence person's compliance in a repeated trials Ultimatum game and whether the agent's facial expressions modify persuasiveness of the touch. 
+Receiving a brief touch from a stranger has been shown increase receiver's willingness to comply with sender's requests. This widely known Midas Touch effect has also been found in computer mediated communication where the touch is approximated by electromechanical stimulation. However, recent findings suggest the effects of touch being particularly sensitive to other situational cues, such as accompanied emotional expressions. In the present study we investigate whether virtual agent's facial expressions and touch influence person's compliance in a repeated trials Ultimatum game and whether the agent's facial expressions modify persuasiveness of the touch. 
 
-The Ultimatum game is an economic decision-making bargaining (UG; Güth, Schmittberger, & Schwarze, 1982) in which participants are assigned to one of two roles, proposer and receiver, and asked to divide money between themselves and their co-player. Proposer is asked to make either a fair or unfair offer to the receiver whose task is to decide whether to accept or reject the offer. If accepting, the money will be divided as proposed but if rejecting, neither player receives anything. Despite the fact that accepting evey offer would be the only rational strategy, people have been shown to systematically reject most of the unfair offers. 
+The Ultimatum game is an economic decision-making bargaining (UG; Güth, Schmittberger, & Schwarze, 1982) in which participants are assigned to one of two roles, proposer and receiver, and asked to divide money between themselves and their co-player. Proposer is asked to make either a fair or unfair offer to the receiver whose task is to decide whether to accept or reject the offer. If accepting, the money will be divided as proposed but if rejecting, neither player receives anything. Despite the fact that accepting evey offer would be the only rational strategy, people have been shown to reject unfair offers. 
 
-In the present study, we utilized an immersive virtual reality (VR) paradigm with haptic technology and motion tracking sensors to produce a strong illusion that, following a facial expression, the virtual agent reaches out and touched the participant. After these nonverbal cues, the proposer made an offer of which the co-player (receiver) either accepted or rejected. Both the receiver (i.e. participant receivers the offer) and proposer (i.e. participant makes the offer) trials were repeated multiple times with eight different virtual agents.
+In the present study, we utilized an immersive virtual reality (VR) paradigm with haptic technology and motion tracking sensors to produce a strong illusion that participant is sharing his/her physical space with a virtual agent who, after showing a facial expression, reaches out and touched the participant. After these nonverbal cues, the player assigned to the role of proposer makes an offer of which the co-player (receiver) either accepted or rejected. In this study, both the receiver (i.e. participant receivers the offer) and proposer (i.e. participant makes the offer) trials were repeated multiple times with eight different virtual agents.
 
-Due to the relative large and complex data set, the analyses of the final assignment will be restricted to the receiver trials in which the participant receives the offer and his/her task is to decide whether to accep or reject it. Along the earlier findings of the Midas touch -effect, it was assumed (H1) that receiving a touch from a virtual agent increases participants' likelihood to accept the subsecuent offer. Given that smile has been shown to have similar persuasive effects, it can be assumed (H2) that agent's emotional facial expressions also affects the likelihood offers are accepted. Finally, because tactile communication is particularly sensitive to other situational cues, it can be assumed (H3) that agent's happy expression enhances the persuasiveness of touch whereas angry expression reduces the Midas touch -effect.
+Due to the relative large and complex data set, the analyses of the final assignment will be restricted to the receiver trials in which the participant receives an unfair offer and his/her task is to decide whether to accep or reject it. Along the earlier findings of the Midas touch -effect, it was assumed (H1) that receiving a touch from a virtual agent increases participants' likelihood to accept the subsecuent unfair offer. Given that smile has been shown to have similar persuasive effects, it was also assumed (H2) that agent's emotional facial expressions affects the likelihood offers are accepted. Finally, because tactile communication is particularly sensitive to other situational cues, I assumed (H3) that agent's happy expression enhances the persuasiveness of touch whereas angry expression reduces the Midas touch -effect.
 
 
 ## Short description of the study design
 
-Repeated-measures design with three within subject factors (offer fairness, touch type, and facial expression) was used. Agents' offers varied between very unfair (1e to the participant and 19e to the agent) to generous (19e to the participant and 1 to the agent) but this factor was later segmented to three categores (fair, little unfair, very unfair). The touch type factor had three levels: visuo-tactile (participant can feel and see the touch), visual (participant sees the touch but does not feel anything), and no touch. Agents' expressions consisted of happy, neutral and angry faces. Since the study included also EEG and autonomic nervous system measures (not included in the current analysis) which are extremely sensitive to noise, we had to repeat each of the touch_expression_offer condition many times. The resulting data is thus rather big. 
+Repeated-measures design with three within subject factors (offer fairness, touch type, and facial expression) was used. Agents' offers varied between very unfair (2e to the participant and 18e to the agent) to generous (18e to the participant and 2 to the agent) but this factor was later segmented to three categores (fair, little unfair, very unfair). Since almost all fair offers were accepted, I limited the analysis to the unfair offers. The touch type factor had three levels: visuo-tactile (participant can feel and see the touch), visual (participant sees the touch but does not feel anything), and no touch. Agents' expressions consisted of happy, neutral and angry faces. Since the study included also EEG and autonomic nervous system measures (not included in the current analysis) which are extremely sensitive to noise, we had to repeat each of the touch_expression_offer condition many times. The resulting data is thus rather big and the amount of trials varies across participants after removing the trials with unsuccesful physiological measurements. 
 
 
 ## Describing the data
 
 Here is a link to the data wrangling script: 
+
+Before carrying out any inferential statistics, the data required some wrangling. In the raw data set, there were 21 variables and 38599 observations (trials). However, removing the proposer trials (i.e. trials in which the participant was the proposer) and a duplicated variable of pp's gender resulted in a new data set "resp.data" with 20 variables and 28861 observations. The cleaning was continued removing pp's who systematically accepted all offers and who had previous knowledge about the Ultimatum game or who had extensive amount of movement artifacts and other kind of noise in their physiological data (12 pps in total). The resulting resp.data3 has 16 variables (filter varibales were removed after the cleaning) and 10147 observations. The cleaned data set consisted of trials with not too long or short reaction times (50 - 3000 ms, there was a 100ms delay in the system so the actual reaction times varied across 150 and 3000 ms). Only the unfair offers were added as there no much variation in the fair offer trials (almost always accepted).
+
+As can be seen, most of the variables are factorial. The pp indicates participant's ID. The data includes variables of participant's and agent's gender (pp_sex, avsex), agents' ethnicity (aveth) and pp's average acceptance rate (accept.prop). Trial level variables of participant's acceptances (accept), response time (RT), and offer-related cardiac orienting response (Cardiac_OR, mean inter-beat interval obtained 1-3 seconds after presenteing the agent's offer) represent the outcome variables whereas agent's touch type (touch), facial expression (emo), and the size of agent's offer (offers) will be set as predictors. The continuous Cardiac_OR and RT variables will be used in the beginning when exploring the data but the final analyses will be limited to the binary outcome, "accept".
+
+```{r}
+unfair.resp = read.csv(file = "responder.csv", header = TRUE)
+str(unfair.resp)
+
+```
+
+## Data exploration
+
+Due to long data format, it is harder to see how many participants there are and what is the gender distribution. One way is to use the pp colum to form a aggregated data frame with two variables (pp and pp_sex) and then crosstab the frequenies of cases by gender. The procedure revealed that there are 53 pps of which 32 are females and 21 are males (I always code females as ones). 
+
+```{r}
+library(dplyr)
+unfair <- unfair.resp
+unfair$pp_sex <- as.numeric(unfair$pp_sex)
+agg.unfair <- aggregate(unfair[1:2], by=list(unfair$pp), FUN=mean)
+
+agg.unfair %>% select(pp, pp_sex) %>% group_by(pp_sex) %>% summarise(count = n())
+```
+
+Summary statistics showed that the maximum number of trials per participant was 596. Along the trials, participants encounted almost as many (about 5000) female and male agents. In 2527 of the cases the agent represented persons with African background (Af), 2532 of the agents had features common for central asian backgruound (Ca), 2501 has Caucasian features and 2588 had features typical in South Asia. Althougt the amount of different touch, emotion and ethnicity conditions used to be equal in the original data set, the removal of artefactual cases resulted in slightly different group sizes. The differences between the conditions were, however, very small. There were about 3400 trials for each touch and emotion type. Agents' offers varied between 2 and 8 euros. This number indicates how much money the agent is giving to the participant out of 20 euros. There are more offer rejections (5959) than acceptances (4188) but this is understandable because all the offers were unfair. Block variable just divides the data to two time related blocks (first half, last half). This variable was created to see, whether the participants expressed habituation along the repeated trials.     
+
+```{r}
+summary(unfair.resp)
+
+```
+
+Inspecting the distrubution and associations between the variables was done separately for each level uóf unfairness. The ggpairs plot below shows that little and somewhat unfair offers were accepted more than very unfair offers. The distribution of reaction times was negatively skewed and similarly distributed in all levels of unfairness. The Cardiac_OR and Max_ibi_1_3s were both normally distrubuted and stronly correlated. This was not surprising given that they should both indicate offer induced deceleration of cardiac cycle. The Cardiac_OR is just a mean of interbet interval 1-3s post stimulus whereas the max_ibi_1_3s is a maximum value obtained from the same time window. There were no other clearly significant correlations, neither in very, somewhat or little unfair offer conditions. 
+
+Some interesting interactions seemed to occur when inspecting the boxplots of acceptances and reaction times plotted separately for each level of unfairness. Reaction times were longer when rejecting very unfair offers and when accecting little unfair ones.  
+
+```{r}
+library(tidyr)
+library(GGally)
+library(ggplot2)
+
+unfair_small <- unfair.resp[,c(16,10,12,11,13)]
+unfair_small$accept <- as.factor(unfair_small$accept)
+explorative_plot <- ggpairs(unfair_small, title = "Distribution and associations of the ultimatum data", mapping = aes(color = unfairness), lower=list(combo=wrap("facethist",binwidth=10)))
+
+explorative_plot
+```
+
+To take a brief look how agents' touch and emotion affects response times and acceptances, I printed out a crosstable. It revealed that regardless of the touch type angry expression reduced participants' likelihood to accept unfair offers. Visuo-tactile and visual touch both seemed to increase acceptances when compared to the no-touch condition. No clear interaction effec was observed between touch and emotion. The reaction times were faster in response to angry face. Touch did not seem to have effect on the reaction times. 
+
+```{r}
+unfair.resp %>% select(unfairness, emo, touch, accept, RT) %>% group_by(touch, emo) %>% summarise(count = n(), reaction_time = mean(RT), Amount_of_acceptances = sum(accept))
+
+names(unfair.resp)
+```
+
+
+## Data analysis: Building a "naive" model 
+
+I started testing my hypothesis by calculating a logistic regression model which does not take into account the fact that the observations (trials) are clustered under participants and that there may thus be dependency between the observations. To take into account the correlation between these repeated trials, I used generalized estimating equations (GEE) when predicting the pp's decisions (i.e. acceptances and rejections). However, to see how the glm based logistic regression differs from  GEE, I first analyzed the data with normal logistic regression.
+
+A simple glm model was built setting the accept as the outcome and unfairness, emo and touch as predictors. The results revealed a statistically significant effects of unfairness, emotion and touch. Angry expression and no-touch were set as comparison conditions to which other levels of emo and touch were contrasted. 
+
+```{r}
+# defining the logistic regression model
+naive <- glm(accept ~ unfairness + emo + touch, data = unfair.resp, family = "binomial")
+
+# printing out model summary
+summary(naive)
+
+```
+
+Estimated coefficients were then used to calculate odd ratios and their CIs. Investigating the odd ratios revealed that the likelihood of accepting unfair offers was 1.92 times more likely if receiving the offer from happy in contrary to angry agent and 1.88 times more likely if the offer was sent by neutral agent in contrats to angry agent. Being touched by the agent was also related to higher acceptances but here the effect was more modest (OR = 1.17 for visuo-tactile touch). Just seeing the agent's touch did not lead to significant increase in acceptances. 
+
+Actual amount offered by the agent affected also the change of accepting the offer. Given that the OR was in this case lower than 1, the OR results implied a negative association between the unfairness and acceptances. That is, people were 3.46 (1/.289 = 3.46) times less likely to accept somewhat unfair offers compared to little unfair offers and 23.26 times less likely to accept very unfair offers than little unfair ones. 
+
+```{r}
+# transforming the coefficients to odd ratios
+OR <- coef(naive) %>% exp
+
+# calculating the confidential intervals for the odd rations
+CI <- confint(naive) %>% exp
+
+# printing out the OR results
+cbind(OR, CI)
+```
+
+Since the midas touch effect was expected to depend on toucher's emotional expression, I then added an interaction term to the model. No significant interaction was found between emotion and touch.   
+
+```{r}
+# defining the logistic regression model with emo*touch interaction
+naive2 <- glm(accept ~ unfairness + emo + touch + emo:touch, data = unfair.resp, family = "binomial")
+
+# printing out model summary
+summary(naive2)
+
+```
+
+A chi-square test was then calculated to see whether the model fit was better in the more complex "naive2" model than in the original "naive" model. There was no difference in the goodness of fit which suggests that I should run the GEE without the interaction term since it just makes the model more complex without adding any predictive power.  
+
+```{r}
+anova(naive, naive2, test ="Chisq")
+```
+
+The problem with this analysis is that the model "thinks" that the data comes from 10147 persons (or independent sources) and that this assumption increases the risk of Type 1 error, particulrly if the within subject autocorrelation is strong (ref.). Next I will run the same analysis with GEE that takes into account that there are 53 participants, each with around 200 trials. 
+
+
+## Data analysis: Taking the dependency into account
+
+
+
+

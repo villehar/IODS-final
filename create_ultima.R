@@ -57,22 +57,20 @@ str(resp.data2)
 
 #defining the filtered data set. Participants with too high acceptance rate (90%), who knew the ultimatum game beforehand, and had problems in EEG measurement were removed
 #also the trials with very short and long reaction times were removed
-resp.data3 <- filter(resp.data2, over90 == TRUE, no_problem == TRUE, notknow_ult == TRUE, RT < 5000, ECGFILT == TRUE)
-str(resp.data3)
-
-write.csv(resp.data3, "responder.csv")
-
-library(GGally)
-library(tidyr)
-library(ggplot2)
+resp.data3 <- filter(resp.data2, over90 == TRUE, no_problem == TRUE, notknow_ult == TRUE, RT < 3000, RT > 50, ECGFILT == TRUE, Fairness == "Unfair")
+names(resp.data3)
+resp.data3 <- select(resp.data3, 1, 2, 4, 6:11, 14:16, 18, 21)
 
 # A "block" variable was then created based on the trial variable
-resp.data3$Block <-cut(resp.data3$trial, c(1,150,300,450,600))
-ggplot(resp.data3, aes(x = RT, col = Block)) + geom_histogram(bins = 100)
-m <- glm(accept ~ Fairness + emo + touch, data = resp.data3, family = "binomial")
-summary(m)
-OR <- coef(m) %>% exp
-CI <- confint(m) %>% exp
-cbind(OR, CI)
+resp.data3$Block <-cut(resp.data3$trial, c(0,300,600))
+levels(resp.data3$Block) <- c("first half", "last half")
+resp.data3$unfairness <-cut(resp.data3$offers, c(9,7,5,1))
+levels(resp.data3$unfairness) <- c("very", "somewhat", "little")
 
-summary(resp.data3)
+
+
+#saving the resulting cleaned data set as text file
+write.csv(resp.data3, "responder.csv", row.names = FALSE)
+
+
+
