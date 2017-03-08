@@ -7,7 +7,11 @@ theme: united
 email: "ville.harjunen@helsinki.fi"
 ---
 
-# Present study and hypotheses
+## Abstract
+
+The present research investigated whether receiving a emotional facial expression or touch from embodied 3d virtual agent increases human participants' compliance to the agent's requests. Logistic regression and generalized estimating equations were used to investigate whether being touched by an virtual agent increases participants' likelihood to accept agent's unfair monetary offers and whether the agent's facial expression modulate this so called Midas touch effect. The logistic regression results demonstrated significant effects of expression and touch but the expression*touch interaction was not significant and was thus omitted from the further analyses. Results of GEE supported the previous findings and demonstrated shigtly higher effects of touch and expression than what was found with the glm. 
+
+## Introduction
 
 Receiving a brief touch from a stranger has been shown increase receiver's willingness to comply with sender's requests. This widely known Midas Touch effect has also been found in computer mediated communication where the touch is approximated by electromechanical stimulation. However, recent findings suggest the effects of touch being particularly sensitive to other situational cues, such as accompanied emotional expressions. In the present study we investigate whether virtual agent's facial expressions and touch influence person's compliance in a repeated trials Ultimatum game and whether the agent's facial expressions modify persuasiveness of the touch. 
 
@@ -25,7 +29,7 @@ Repeated-measures design with three within subject factors (offer fairness, touc
 
 ### Describing the data
 
-Here is a link to the data wrangling script: 
+Here is a link to the data wrangling script: https://github.com/villehar/IODS-final/blob/master/create_ultima.R
 
 Before carrying out any inferential statistics, the data required some wrangling. In the raw data set, there were 21 variables and 38599 observations (trials). However, removing the proposer trials (i.e. trials in which the participant was the proposer) and a duplicated variable of pp's gender resulted in a new data set "resp.data" with 20 variables and 28861 observations. The cleaning was continued removing pp's who systematically accepted all offers and who had previous knowledge about the Ultimatum game or who had extensive amount of movement artifacts and other kind of noise in their physiological data (12 pps in total). The resulting resp.data3 has 16 variables (filter varibales were removed after the cleaning) and 10147 observations. The cleaned data set consisted of trials with not too long or short reaction times (50 - 3000 ms, there was a 100ms delay in the system so the actual reaction times varied across 150 and 3000 ms). Only the unfair offers were added as there no much variation in the fair offer trials (almost always accepted).
 
