@@ -3,8 +3,8 @@ title: "Final assignment"
 author: "Ville Harjunen"
 date: "8th of March 2017"
 output: html_document
-theme: united
 email: ville.harjunen@helsinki.fi
+code_folding: hide
 ---
 
 ## Abstract
