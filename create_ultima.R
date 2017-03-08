@@ -5,7 +5,7 @@
 
 
 # Downloading the raw (uncleaned) data 
-raw.data <- read.table("Data/raw_ultima.txt", header = TRUE, sep = "\t")
+raw.data <- read.table("raw_ultima.txt", header = TRUE, sep = "\t")
 
 # Inspecting the data structure: 21 variables and 38599 observations (about 585 trials for each of the 66 participants)
 str(raw.data)
@@ -67,8 +67,7 @@ levels(resp.data3$Block) <- c("first half", "last half")
 resp.data3$unfairness <-cut(resp.data3$offers, c(9,7,5,1))
 levels(resp.data3$unfairness) <- c("very", "somewhat", "little")
 
-
-
+setwd("//home.org.aalto.fi/harjunv1/data/Desktop/GitHub/IODS-final/Data")
 #saving the resulting cleaned data set as text file
 write.csv(resp.data3, "responder.csv", row.names = FALSE)
 
