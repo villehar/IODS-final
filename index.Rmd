@@ -4,6 +4,7 @@ author: "Ville Harjunen"
 output:
   html_document:
     theme: cosmo
+    encoding: UTF-8
     toc: true
     toc_depth: 2
     fig_caption: true
