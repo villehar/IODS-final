@@ -4,6 +4,7 @@ author: "Ville Harjunen"
 date: "8th of March 2017"
 output: html_document
 theme: united
+encoding: UTF-8
 email: "ville.harjunen@helsinki.fi"
 ---
 
