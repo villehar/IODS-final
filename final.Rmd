@@ -13,6 +13,7 @@ The present research investigated whether receiving a emotional facial expressio
 
 ## Introduction
 
+
 Receiving a brief touch from a stranger has been shown increase receiver's willingness to comply with sender's requests. This widely known Midas Touch effect has also been found in computer mediated communication where the touch is approximated by electromechanical stimulation. However, recent findings suggest the effects of touch being particularly sensitive to other situational cues, such as accompanied emotional expressions. In the present study we investigate whether virtual agent's facial expressions and touch influence person's compliance in a repeated trials Ultimatum game and whether the agent's facial expressions modify persuasiveness of the touch. 
 
 The Ultimatum game is an economic decision-making bargaining (UG; Guth, Schmittberger, & Schwarze, 1982) in which participants are assigned to one of two roles, proposer and receiver, and asked to divide money between themselves and their co-player. Proposer is asked to make either a fair or unfair offer to the receiver whose task is to decide whether to accept or reject the offer. If accepting, the money will be divided as proposed but if rejecting, neither player receives anything. Despite the fact that accepting evey offer would be the only rational strategy, people have been shown to reject unfair offers. 
@@ -24,7 +25,7 @@ Due to the relative large and complex data set, the analyses of the final assign
 
 ## Short description of the study design
 
-Repeated-measures design with three within subject factors (offer fairness, touch type, and facial expression) was used. Agents' offers varied between very unfair (2e to the participant and 18e to the agent) to generous (18e to the participant and 2 to the agent) but this factor was later segmented to three categores (fair, little unfair, very unfair). Since almost all fair offers were accepted, I limited the analysis to the unfair offers. The touch type factor had three levels: visuo-tactile (participant can feel and see the touch), visual (participant sees the touch but does not feel anything), and no touch. Agents' expressions consisted of happy, neutral and angry faces. Since the study included also EEG and autonomic nervous system measures (not included in the current analysis) which are extremely sensitive to noise, we had to repeat each of the touch_expression_offer condition many times. The resulting data is thus rather big and the amount of trials varies across participants after removing the trials with unsuccesful physiological measurements. 
+Repeated-measures design with three within subject factors (offer fairness, touch type, and facial expression) was used. Agents' offers varied between very unfair (2e to the participant and 18e to the agent) to generous (18e to the participant and 2 to the agent) but this factor was later segmented to three categores (fair, little unfair, very unfair). Since almost all fair offers were accepted, I limited the analysis to the unfair offers. The touch type factor had three levels: visuo-tactile (participant can feel and see the touch), visual (participant sees the touch but does not feel anything), and no touch. Agents' expressions consisted of happy, neutral and angry faces. Since the study included also EEG and autonomic nervous system measures (not included in the current analysis) which are extremely sensitive to noise, we had to repeat each of the touch_expression_offer condition many times. The resulting data is thus rather big and the amount of trials varies across participants after removing the trials with unsuccesful physiological measurements.
 
 
 ### Describing the data
@@ -43,7 +44,7 @@ str(unfair.resp)
 
 ## Data exploration
 
-Due to long data format, it is harder to see how many participants there are and what is the gender distribution. One way is to use the pp colum to form a aggregated data frame with two variables (pp and pp_sex) and then crosstab the frequenies of cases by gender. The procedure revealed that there are 53 pps of which 32 are females and 21 are males (I always code females as ones). 
+Due to long data format, it is harder to see how many participants there are and what is the gender distribution. One way is to use the pp colum to form a aggregated data frame with two variables (pp and pp_sex) and then crosstab the frequenies of cases by gender. The procedure revealed that there are 53 pps of which 32 are females and 21 are males (I always code females as ones).
 
 ```{r, message=FALSE, warning=FALSE, error=FALSE}
 library(dplyr)
